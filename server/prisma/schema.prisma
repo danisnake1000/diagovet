@@ -18,6 +18,7 @@ model Animal {
   name String 
   age Int 
   breed String
+  createdAt DateTime @default(now())
   analisys Analysis[] 
 }
 
@@ -25,6 +26,7 @@ model Analysis {
   id Int @unique @default(autoincrement())
   blood String
   urine String
+  createdAt DateTime @default(now())
   animalId Int
   animal Animal @relation(fields: [animalId],references: [id])
 }

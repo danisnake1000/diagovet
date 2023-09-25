@@ -15,26 +15,48 @@ export const getAnimals = async (req, res) => {
 };
 
 export const getAnimal = async (req, res) => {
-  const getAnimalId = await prisma.animal.findFirst({
-    where: {
-      id: +req.params.id,
-    },
-  });
-  return res.json(getAnimalId);
+  try {
+    const getAnimalId = await prisma.animal.findFirst({
+      where: {
+        id: +req.params.id,
+      },
+    });
+    if (!getAnimalId) {
+      return res.status(404).json({ message: "animal not found!!!" });
+    }
+    return res.json(getAnimalId);
+  } catch (error) {
+    return res.json({ messenger: "Animal notfound" });
+  }
 };
 
 export const deleteAnimal = async (req, res) => {
-  const deletAnimal = await prisma.animal.delete({
-    where: {
-      id: +req.params.id,
-    },
-  });
-  if (!deletAnimal)  res.status(404).json({ error: "Animal not found" });
-
-  res.json(deletAnimal);
+  try {
+    const deletAnimal = await prisma.animal.delete({
+      where: {
+        id: parseInt(req.params.id),
+      },
+    });
+    
+    if (!deletAnimal) {
+      return res.status(404).json({ message: "animal not found" });
+    }
+    return res.json(deletAnimal);
+  } catch (error) {
+    return res.send(error.meta);
+  }
 };
 
 export const updateAnimal = async (req, res) => {
-  const getAnimal = await prisma.animal.findMany();
-  res.json(getAnimal);
+  try {
+    const updateAnimal = await prisma.animal.update({
+      where: {
+        id: parseInt(req.params.id),
+      },
+      data: req.body,
+    });
+    return res.json(updateAnimal);
+  } catch (error) {
+    return res.send(error.meta);
+  }
 };

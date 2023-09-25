@@ -17,6 +17,6 @@ router.get("/animal/:id", getAnimal);
 
 router.delete("/animal/:id", deleteAnimal);
 
-router.patch("/animal/:id", updateAnimal);
+router.put("/animal/:id", updateAnimal);
 
 export default router;
