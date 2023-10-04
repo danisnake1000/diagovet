@@ -19,7 +19,7 @@ model Animal {
   age Int 
   breed String
   createdAt DateTime @default(now())
-  analisys Analysis[] 
+  analisys Analysis[]
 }
 
 model Analysis {

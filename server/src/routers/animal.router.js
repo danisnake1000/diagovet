@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
   getAnimal,
-  getAnimals,
+  getAnimalId,
   deleteAnimal,
   createAnimal,
   updateAnimal,
@@ -9,11 +9,11 @@ import {
 
 const router = Router();
 
-router.get("/animal", getAnimals);
+router.get("/animal", getAnimal);
 
 router.post("/animal", createAnimal);
 
-router.get("/animal/:id", getAnimal);
+router.get("/animal/:id", getAnimalId);
 
 router.delete("/animal/:id", deleteAnimal);
 

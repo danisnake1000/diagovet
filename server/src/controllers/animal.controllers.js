@@ -9,24 +9,24 @@ export const createAnimal = async (req, res) => {
   res.json(newAnimal);
 };
 
-export const getAnimals = async (req, res) => {
+export const getAnimal = async (req, res) => {
   const getAnimal = await prisma.animal.findMany();
   res.json(getAnimal);
 };
 
-export const getAnimal = async (req, res) => {
+export const getAnimalId = async (req, res) => {
   try {
-    const getAnimalId = await prisma.animal.findFirst({
+    const getAnimal = await prisma.animal.findFirst({
       where: {
         id: +req.params.id,
       },
     });
-    if (!getAnimalId) {
+    if (!getAnimal) {
       return res.status(404).json({ message: "animal not found!!!" });
     }
-    return res.json(getAnimalId);
+    return res.json(getAnimal);
   } catch (error) {
-    return res.json({ messenger: "Animal notfound" });
+    return res.json({ messenger: "Animal not found" });
   }
 };
 
