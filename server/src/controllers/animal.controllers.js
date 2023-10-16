@@ -7,6 +7,7 @@ export const createAnimal = async (req, res) => {
     data: req.body,
   });
   res.json(newAnimal);
+  
 };
 
 export const getAnimal = async (req, res) => {

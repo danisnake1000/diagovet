@@ -6,12 +6,12 @@ export const createAnalysis = async (req, res) => {
   const createAnalysiss = await prisma.analysis.create({
     data: req.body,
   });
-  res.json(createAnalysiss);
+  return res.json(createAnalysiss);
 };
 
 export const getAnalysis = async (req, res) => {
   const getAnalysis = await prisma.analysis.findMany();
-  res.json(getAnalysis);
+   return res.json(getAnalysis);
 };
 
 export const getAnalysisId = async (req, res) => {
