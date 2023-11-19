@@ -24,8 +24,18 @@ model Animal {
 
 model Analysis {
   id Int @unique @default(autoincrement())
-  blood String
-  urine String
+  hematologia String
+  bioquimica String
+  AnalisisDefluidosCorporales String
+  parasitologia String
+  endocrinologia String
+  serologia String
+  estudiosMoleculares String
+  citopatologia String
+  bacteriologia String
+  micologia String
+  toxicologia String
+  otros String
   createdAt DateTime @default(now())
   animalId Int
   animal Animal @relation(fields: [animalId],references: [id])
