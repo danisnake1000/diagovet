@@ -60,4 +60,5 @@ export const updateAnimal = async (req, res) => {
   } catch (error) {
     return res.send(error.meta);
   }
-};
+}; 
+

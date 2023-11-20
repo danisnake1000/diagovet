@@ -19,4 +19,5 @@ router.delete("/analysis/:id", deleteAnalysis);
 
 router.put("/analysis/:id", updateAnalysis);
 
+
 export default router;
